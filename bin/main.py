@@ -1,3 +1,20 @@
+##############################################################################
+#
+#                        Author: LKTP
+#           Purpose: To get data on files and eventually mess with ML
+#           Bugs: None right now
+#           ToDo: Move this list to git
+#                1. Add file searches into the file folders
+#                  1a.  Once it searches through the folder, it will move the files to another location
+#                2. Do other shit             
+#           ChangeLog: None yet
+#
+#
+#
+################################################################################
+
+
+
 from rules import *
 import os
 import sys
