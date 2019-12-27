@@ -31,7 +31,6 @@ def suspiciousDllCalls(file):
 def totalDllCalls(file):
    #will be used to find the number of dll calls 
    return 0
-   pass
 
 def fileSize(file):
    #returns the filesize of the file
