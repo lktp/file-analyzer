@@ -10,6 +10,11 @@ Things I want to build into here:
    4. get number of dll calls
    5. Get "suspicious dll calls"
    6. File type by header
+   7. Get file size
+       -- Done
+   8. Get file minimum size
+       -- Done
+   9. Look for registry entries
 
 
 '''
@@ -35,7 +40,7 @@ def fileSize(file):
    f = open(file, 'rb')
    byteArr = bytearray(f.read())
    f.close()
-   return len(list(byteArr))
+   return round(len(list(byteArr)),2)
 
 def entropy(file, fileSize):
    #returns the entropy and mine file size of file
@@ -59,7 +64,7 @@ def entropy(file, fileSize):
    ent = -ent
    # find min byte size
    minFileSize = ((ent * fileSize) / 8)
-   return ent, minFileSize   
+   return round(ent,3), round(minFileSize,2)   
 
 
 def search_ip(file):
