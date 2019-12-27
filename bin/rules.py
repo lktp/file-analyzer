@@ -22,7 +22,6 @@ Things I want to build into here:
 def packing(file):
    #returns one of three values, (yes|no|unknown)
    return "unknown"
-   pass
 
 def suspiciousDllCalls(file):
    #returns the number of suspicious DLL calls, as well as a library of suspicious DLL calls
