@@ -1,4 +1,6 @@
 from rules import *
+import os
+import sys
 
 class sample():
    def __init__(self,fileName, location):
@@ -13,6 +15,7 @@ class sample():
       self.suspiciousCalls = []
       self.packing = ''
       self.totalDllCalls = 0
+      self.hash = ''
 
    def updateSampleType(self, sampleType):
       self.sampleType = sampleType   
@@ -23,11 +26,15 @@ fileName = file.split("/")[-1]
 
 sample = sample(fileName, file)
 
-def malware_write(data):
-   pass
-
-def clean_write(data):
-   pass
+def output(object):
+   if not os.path.exists("data.csv"):
+      print ("data file doesnt exist, creating")
+      f = open('data.csv', 'w')
+      f.write("file Name, file sample type, file Hash, entropy, size, ip, min file size, packing, suspicious calls, suspiciousdll number, total dlls\n")
+      f.close()
+   f=open('data.csv', 'a')
+   f.write("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n" %(object.fileName, object.sampleType, object.hash, object.entropy, object.fileSize, object.ip, object.minFileSize, object.packing, object.suspiciousCalls, object.suspiciousDllNumber, object.totalDllCalls))
+   f.close()
 
 print ("starting classifier")
 
@@ -46,3 +53,5 @@ for i in dir(sample):
       continue
    else:
       print ("object.%s = %s" %(i, getattr(sample, i)))
+
+output(sample)
